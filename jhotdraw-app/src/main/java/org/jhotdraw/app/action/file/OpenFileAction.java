@@ -29,6 +29,8 @@ import javax.swing.JRootPane;
 import javax.swing.SwingUtilities;
 import javax.swing.SwingWorker;
 import javax.swing.UIManager;
+
+import dk.sdu.mmmi.featuretracer.lib.FeatureEntryPoint;
 import org.jhotdraw.action.AbstractApplicationAction;
 import org.jhotdraw.api.app.Application;
 import org.jhotdraw.api.app.View;
@@ -78,13 +80,14 @@ public class OpenFileAction extends AbstractApplicationAction {
 
     private static final long serialVersionUID = 1L;
     public static final String ID = "file.open";
+    public static final String RBUNDLE = "org.jhotdraw.app.Labels";
 
     /**
      * Creates a new instance.
      */
     public OpenFileAction(Application app) {
         super(app);
-        ResourceBundleUtil labels = ResourceBundleUtil.getBundle("org.jhotdraw.app.Labels");
+        ResourceBundleUtil labels = ResourceBundleUtil.getBundle(RBUNDLE);
         labels.configureAction(this, ID);
     }
 
@@ -93,6 +96,7 @@ public class OpenFileAction extends AbstractApplicationAction {
         return getApplication().getOpenChooser(null);
     }
 
+    @FeatureEntryPoint(value = "OpenPNGInEditor")
     @Override
     public void actionPerformed(ActionEvent evt) {
         final Application app = getApplication();
@@ -171,7 +175,7 @@ public class OpenFileAction extends AbstractApplicationAction {
                 if (exists) {
                     view.read(uri, chooser);
                 } else {
-                    ResourceBundleUtil labels = ResourceBundleUtil.getBundle("org.jhotdraw.app.Labels");
+                    ResourceBundleUtil labels = ResourceBundleUtil.getBundle(RBUNDLE);
                     throw new IOException(labels.getFormatted("file.open.fileDoesNotExist.message", URIUtil.getName(uri)));
                 }
                 return null;
