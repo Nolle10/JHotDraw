@@ -246,7 +246,6 @@ public class OpenFileAction extends AbstractApplicationAction {
         returnValue[0] = JFileChooser.ERROR_OPTION;
         chooser.rescanCurrentDirectory();
         dialog.setVisible(true);
-        //chooser.firePropertyChange("JFileChooserDialogIsClosingProperty", dialog, null);
         dialog.removeAll();
         dialog.dispose();
         return returnValue[0];
@@ -275,17 +274,10 @@ public class OpenFileAction extends AbstractApplicationAction {
                 dialog.getRootPane().setWindowDecorationStyle(JRootPane.FILE_CHOOSER_DIALOG);
             }
         }
-        //dialog.pack();
+
         Preferences prefs = PreferencesUtil.userNodeForPackage(getApplication().getModel().getClass());
         PreferencesUtil.installFramePrefsHandler(prefs, "openChooser", dialog);
-        /*
-        if (window.getBounds().isEmpty()) {
-        Rectangle screenBounds = window.getGraphicsConfiguration().getBounds();
-        dialog.setLocation(screenBounds.x + (screenBounds.width - dialog.getWidth()) / 2,
-        screenBounds.y + (screenBounds.height - dialog.getHeight()) / 3);
-        } else {
-        dialog.setLocationRelativeTo(parent);
-        }*/
+
         return dialog;
     }
 }
