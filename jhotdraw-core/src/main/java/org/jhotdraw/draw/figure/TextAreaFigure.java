@@ -85,6 +85,7 @@ public class TextAreaFigure extends AbstractAttributedDecoratedFigure implements
         if (getText() != null || isEditable()) {
             Font font = getFont();
             boolean isUnderlined = get(FONT_UNDERLINE);
+            boolean isStrikethrough = get(FONT_STRIKETHROUGH);
             Insets2D.Double insets = getInsets();
             Rectangle2D.Double textRect = new Rectangle2D.Double(
                     bounds.x + insets.left,
@@ -114,6 +115,9 @@ public class TextAreaFigure extends AbstractAttributedDecoratedFigure implements
                         as.addAttribute(TextAttribute.FONT, font);
                         if (isUnderlined) {
                             as.addAttribute(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_LOW_ONE_PIXEL);
+                        }
+                        if (isStrikethrough) {
+                            as.addAttribute(TextAttribute.STRIKETHROUGH, TextAttribute.STRIKETHROUGH_ON);
                         }
                         int tabCount = paragraphs[i].split("\t").length - 1;
                         Rectangle2D.Double paragraphBounds = drawParagraph(g, as.getIterator(), verticalPos, maxVerticalPos, leftMargin, rightMargin, tabStops, tabCount);
@@ -479,6 +483,7 @@ public class TextAreaFigure extends AbstractAttributedDecoratedFigure implements
         if (getText() != null) {
             Font font = getFont();
             boolean isUnderlined = get(FONT_UNDERLINE);
+            boolean isStrikethrough = get(FONT_STRIKETHROUGH);
             float leftMargin = 0;
             float rightMargin = (float) maxWidth - 1;
             float verticalPos = 0;
@@ -498,6 +503,9 @@ public class TextAreaFigure extends AbstractAttributedDecoratedFigure implements
                     as.addAttribute(TextAttribute.FONT, font);
                     if (isUnderlined) {
                         as.addAttribute(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_LOW_ONE_PIXEL);
+                    }
+                    if(isStrikethrough) {
+                        as.addAttribute(TextAttribute.STRIKETHROUGH, TextAttribute.STRIKETHROUGH_ON);
                     }
                     int tabCount = paragraphs[i].split("\t").length - 1;
                     Rectangle2D.Double paragraphBounds = drawParagraph(null, as.getIterator(), verticalPos, maxVerticalPos, leftMargin, rightMargin, tabStops, tabCount);

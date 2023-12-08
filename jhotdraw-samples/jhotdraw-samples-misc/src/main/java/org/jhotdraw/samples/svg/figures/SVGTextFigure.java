@@ -126,6 +126,9 @@ public class SVGTextFigure
             if (get(FONT_UNDERLINE)) {
                 textAttributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
             }
+            if (get(FONT_STRIKETHROUGH)) {
+                textAttributes.put(TextAttribute.STRIKETHROUGH, TextAttribute.STRIKETHROUGH_ON);
+            }
             TextLayout textLayout = new TextLayout(text, textAttributes, frc);
             cachedBounds.setRect(coordinates[0].x, coordinates[0].y - textLayout.getAscent(), textLayout.getAdvance(), textLayout.getAscent());
             AffineTransform tx = new AffineTransform();

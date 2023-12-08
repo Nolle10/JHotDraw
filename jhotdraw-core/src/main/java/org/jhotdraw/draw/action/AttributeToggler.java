@@ -16,6 +16,7 @@ import javax.swing.text.*;
 import javax.swing.undo.*;
 import org.jhotdraw.draw.*;
 import org.jhotdraw.util.ActionUtil;
+import org.jhotdraw.util.LocaleUtil;
 import org.jhotdraw.util.ResourceBundleUtil;
 
 /**

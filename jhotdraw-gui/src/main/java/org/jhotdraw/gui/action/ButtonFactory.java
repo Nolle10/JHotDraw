@@ -64,6 +64,8 @@ import static org.jhotdraw.draw.AttributeKeys.STROKE_PLACEMENT;
 import static org.jhotdraw.draw.AttributeKeys.STROKE_TYPE;
 import static org.jhotdraw.draw.AttributeKeys.STROKE_WIDTH;
 import static org.jhotdraw.draw.AttributeKeys.TEXT_COLOR;
+import static org.jhotdraw.gui.action.FontStyleButtonFactory.*;
+
 import org.jhotdraw.draw.DrawingEditor;
 import org.jhotdraw.draw.DrawingView;
 import org.jhotdraw.draw.action.AbstractSelectedAction;
@@ -1531,9 +1533,10 @@ public class ButtonFactory {
 
     public static void addFontButtonsTo(JToolBar bar, DrawingEditor editor) {
         bar.add(createFontButton(editor));
-        bar.add(createFontStyleBoldButton(editor));
-        bar.add(createFontStyleItalicButton(editor));
-        bar.add(createFontStyleUnderlineButton(editor));
+        bar.add(createFontStyleButton(editor, FontStyle.BOLD));
+        bar.add(createFontStyleButton(editor, FontStyle.ITALIC));
+        bar.add(createFontStyleButton(editor, FontStyle.UNDERLINE));
+        bar.add(createFontStyleButton(editor, FontStyle.STRIKETHROUGH));
     }
 
     public static JPopupButton createFontButton(DrawingEditor editor) {
