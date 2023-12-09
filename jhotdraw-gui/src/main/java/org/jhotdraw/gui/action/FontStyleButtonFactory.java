@@ -4,7 +4,6 @@ import org.jhotdraw.api.app.Disposable;
 import org.jhotdraw.draw.DrawingEditor;
 import org.jhotdraw.draw.action.AttributeToggler;
 import org.jhotdraw.util.ActionUtil;
-import org.jhotdraw.util.LocaleUtil;
 import org.jhotdraw.util.ResourceBundleUtil;
 
 import javax.swing.*;
@@ -14,7 +13,6 @@ import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledEditorKit;
 import java.awt.event.ActionEvent;
 import java.util.LinkedList;
-import java.util.ResourceBundle;
 
 import static org.jhotdraw.draw.AttributeKeys.*;
 

@@ -504,7 +504,7 @@ public class TextAreaFigure extends AbstractAttributedDecoratedFigure implements
                     if (isUnderlined) {
                         as.addAttribute(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_LOW_ONE_PIXEL);
                     }
-                    if(isStrikethrough) {
+                    if (isStrikethrough) {
                         as.addAttribute(TextAttribute.STRIKETHROUGH, TextAttribute.STRIKETHROUGH_ON);
                     }
                     int tabCount = paragraphs[i].split("\t").length - 1;
