@@ -1,9 +1,7 @@
 package org.jhotdraw.draw.action.Acceptencetest;
 
 import com.tngtech.jgiven.Stage;
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertSame;
-
 import com.tngtech.jgiven.annotation.ExpectedScenarioState;
 import com.tngtech.jgiven.annotation.ProvidedScenarioState;
 import org.jhotdraw.draw.Drawing;
