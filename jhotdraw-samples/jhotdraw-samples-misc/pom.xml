@@ -32,9 +32,14 @@
             <version>2.37.0</version>
         </dependency>
         <dependency>
-            <groupId>dk.sdu.mmmi</groupId>
+            <groupId>dk.sdu.cbse</groupId>
             <artifactId>featuretracerlite</artifactId>
-            <version>1.0</version>
+            <version>1.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.9.9</version>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
@@ -51,11 +56,6 @@
             <groupId>dk.sdu.cbse</groupId>
             <artifactId>featuretracerlite</artifactId>
             <version>1.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjweaver</artifactId>
-            <version>1.9.9</version>
         </dependency>
     </dependencies>
     <build>

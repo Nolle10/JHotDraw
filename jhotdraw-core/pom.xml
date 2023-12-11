@@ -40,17 +40,17 @@
 			<artifactId>jhotdraw-actions</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-		<!--<dependency>
+		<dependency>
 			<groupId>dk.sdu.mmmi</groupId>
 			<artifactId>featuretracer</artifactId>
 			<version>1.0</version>
 			<type>jar</type>
-		</dependency>-->
-		<dependency>
+		</dependency>
+		<!--<dependency>
 			<groupId>dk.sdu.cbse</groupId>
 			<artifactId>featuretracerlite</artifactId>
 			<version>1.1-SNAPSHOT</version>
-		</dependency>
+		</dependency>-->
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter</artifactId>
