@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-//import org.junit.Test;
+import org.junit.Test;
 import org.mockito.Mockito;
 
 import javax.swing.*;
@@ -20,7 +20,7 @@ import static org.mockito.Mockito.*;
 
 public class FontStyleButtonFactoryTest {
 
-//    @Test
+    @Test
     public void fontStyleButtonAction() {
         Map<FontStyleButtonFactory.FontStyle, AttributeKey<Boolean>> parameters = new HashMap<>();
         parameters.put(FontStyleButtonFactory.FontStyle.BOLD, FONT_BOLD);
@@ -53,7 +53,7 @@ public class FontStyleButtonFactoryTest {
         }
     }
 
-//    @Test
+    @Test
     public void fontStyleButtonTooltip() {
         Map<FontStyleButtonFactory.FontStyle, String> labels = new HashMap<>();
         labels.put(FontStyleButtonFactory.FontStyle.BOLD, "Bold");
