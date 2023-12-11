@@ -35,7 +35,6 @@ public class BringToFrontAction extends AbstractSelectedAction implements Arrang
     /**
      * Creates a new instance.
      */
-    @FeatureEntryPoint(value = "bringToFrontAction")
     public BringToFrontAction(DrawingEditor editor) {
         super(editor);
         ResourceBundleUtil.getRResourceBundleUtilLabels().configureAction(this, ID);

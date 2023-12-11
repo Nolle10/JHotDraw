@@ -35,7 +35,7 @@ public class SendToBackAction extends AbstractSelectedAction implements ArrangeS
     /**
      * Creates a new instance.
      */
-    @FeatureEntryPoint(value = "sendToBackAction")
+
     public SendToBackAction(DrawingEditor editor) {
         super(editor);
         ResourceBundleUtil.getRResourceBundleUtilLabels().configureAction(this, ID);
