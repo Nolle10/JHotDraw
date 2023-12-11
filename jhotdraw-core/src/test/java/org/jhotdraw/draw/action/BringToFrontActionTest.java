@@ -83,7 +83,7 @@ class BringToFrontActionTest {
     }
 
     @Test
-    void OneFigure(){
+    void oneFigure(){
         Set<Figure> selectedFigure = new LinkedHashSet<>();
         selectedFigure.add(figure);
         when(view.getSelectedFigures()).thenReturn(selectedFigure);
@@ -92,7 +92,7 @@ class BringToFrontActionTest {
     }
 
     @Test
-    void AlreadyArranged(){
+    void alreadyArranged(){
         Set<Figure> selectedFigure1 = new LinkedHashSet<>();
         selectedFigure1.add(figure1);
         when(view1.getSelectedFigures()).thenReturn(selectedFigure1);
@@ -101,7 +101,7 @@ class BringToFrontActionTest {
     }
 
     @Test
-    void OneFigureSelected(){
+    void oneFigureSelected(){
         Set<Figure>selectedFigure2 = new LinkedHashSet<>();
         selectedFigure2.add(figure2);
         when(view1.getSelectedFigures()).thenReturn(selectedFigure2);
@@ -110,7 +110,7 @@ class BringToFrontActionTest {
     }
 
     @Test
-    void AllFiguresSelected(){
+    void allFiguresSelected(){
         Set<Figure> selectedFigures = new LinkedHashSet<>();
         selectedFigures.add(figure3);
         selectedFigures.add(figure2);
@@ -121,7 +121,7 @@ class BringToFrontActionTest {
     }
 
     @Test
-    void MultipleFiguresSelected(){
+    void multipleFiguresSelected(){
         Set<Figure> multipleSelectedFigures = new LinkedHashSet<>();
         multipleSelectedFigures.add(figure5);
         multipleSelectedFigures.add(figure6);

@@ -85,7 +85,7 @@ class SendToBackActionTest {
 
 
     @Test
-    void OneFigure(){
+    void oneFigure(){
         Set<Figure> selectedFigure = new LinkedHashSet<>();
         selectedFigure.add(figure);
         when(view.getSelectedFigures()).thenReturn(selectedFigure);
@@ -94,7 +94,7 @@ class SendToBackActionTest {
     }
 
     @Test
-    void AlreadyArranged(){
+    void alreadyArranged(){
         Set<Figure> selectedFigure3 = new LinkedHashSet<>();
         selectedFigure3.add(figure3);
         when(view1.getSelectedFigures()).thenReturn(selectedFigure3);
@@ -103,7 +103,7 @@ class SendToBackActionTest {
     }
 
     @Test
-    void OneFigureSelected(){
+    void oneFigureSelected(){
         Set<Figure>selectedFigure2 = new LinkedHashSet<>();
         selectedFigure2.add(figure2);
         when(view1.getSelectedFigures()).thenReturn(selectedFigure2);
@@ -112,7 +112,7 @@ class SendToBackActionTest {
     }
 
     @Test
-    void AllFiguresSelected(){
+    void allFiguresSelected(){
         Set<Figure> selectedFigures = new LinkedHashSet<>();
         selectedFigures.add(figure3);
         selectedFigures.add(figure2);
@@ -123,7 +123,7 @@ class SendToBackActionTest {
     }
 
     @Test
-    void MultipleFiguresSelected(){
+    void multipleFiguresSelected(){
         Set<Figure> multipleSelectedFigures = new LinkedHashSet<>();
         multipleSelectedFigures.add(figure5);
         multipleSelectedFigures.add(figure6);
