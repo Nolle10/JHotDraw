@@ -38,7 +38,7 @@ public class SendToBackAction extends AbstractSelectedAction implements ArrangeS
 
     public SendToBackAction(DrawingEditor editor) {
         super(editor);
-        ResourceBundleUtil.getRResourceBundleUtilLabels().configureAction(this, ID);
+        ResourceBundleUtil.getBundleDrawLabels().configureAction(this, ID);
         updateEnabledState();
     }
 
@@ -53,7 +53,7 @@ public class SendToBackAction extends AbstractSelectedAction implements ArrangeS
 
             @Override
             public String getPresentationName() {
-                return ResourceBundleUtil.getRResourceBundleUtilLabels().getTextProperty(ID);
+                return ResourceBundleUtil.getBundleDrawLabels().getTextProperty(ID);
             }
 
             @Override

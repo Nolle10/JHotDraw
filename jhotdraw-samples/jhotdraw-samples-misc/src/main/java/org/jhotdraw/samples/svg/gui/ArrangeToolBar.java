@@ -35,7 +35,7 @@ public class ArrangeToolBar extends AbstractToolBar {
      * Creates new instance.
      */
     public ArrangeToolBar() {
-        setName(ResourceBundleUtil.getRResourceBundleUtilLabels().getString(getID() + ".toolbar"));
+        setName(ResourceBundleUtil.getBundleSamplesSvgLabels().getString(getID() + ".toolbar"));
     }
 
     @Override
@@ -66,7 +66,7 @@ public class ArrangeToolBar extends AbstractToolBar {
                 return panel;
             }
 
-            ResourceBundleUtil labels = ResourceBundleUtil.getRResourceBundleUtilLabels();
+            ResourceBundleUtil labels = ResourceBundleUtil.getBundleSamplesSvgLabels();
 
             GridBagConstraints gbc = new GridBagConstraints();
             GridBagLayout layout = new GridBagLayout();

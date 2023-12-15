@@ -37,7 +37,7 @@ public class BringToFrontAction extends AbstractSelectedAction implements Arrang
      */
     public BringToFrontAction(DrawingEditor editor) {
         super(editor);
-        ResourceBundleUtil.getRResourceBundleUtilLabels().configureAction(this, ID);
+        ResourceBundleUtil.getBundleDrawLabels().configureAction(this, ID);
         updateEnabledState();
     }
 
@@ -52,7 +52,7 @@ public class BringToFrontAction extends AbstractSelectedAction implements Arrang
 
             @Override
             public String getPresentationName() {
-                return ResourceBundleUtil.getRResourceBundleUtilLabels().getTextProperty(ID);
+                return ResourceBundleUtil.getBundleDrawLabels().getTextProperty(ID);
             }
 
             @Override
