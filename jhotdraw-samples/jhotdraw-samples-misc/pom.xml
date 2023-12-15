@@ -59,8 +59,8 @@
                 <version>2.22.2</version>
                 <configuration>
                     <argLine>
-                        -javaagent:"C:\Users\${user.name}\.m2\repository\org\aspectj\aspectjweaver\1.9.9\aspectjweaver-1.9.9.jar"
-                        <!---javaagent:/Users/${user.name}/.m2/repository/org/aspectj/aspectjweaver/1.9.9/aspectjweaver-1.9.9.jar-->
+                        <!---javaagent:"C:\Users\${user.name}\.m2\repository\org\aspectj\aspectjweaver\1.9.9\aspectjweaver-1.9.9.jar"-->
+                        -javaagent:/Users/${user.name}/.m2/repository/org/aspectj/aspectjweaver/1.9.9/aspectjweaver-1.9.9.jar
                         --add-opens java.base/java.lang=ALL-UNNAMED
                     </argLine>
                     <useSystemClassLoader>true</useSystemClassLoader>
