@@ -19,7 +19,7 @@ public class GivenSomeState extends Stage<GivenSomeState> {
     @ProvidedScenarioState
     DrawingView view = new DefaultDrawingView();
 
-    public GivenSomeState I_have_tree_figures_in_my_drawing() {
+    public GivenSomeState I_have_three_figures_in_my_drawing() {
         drawing.add(figure3);
         drawing.add(figure2);
         drawing.add(figure1);
