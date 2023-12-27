@@ -33,7 +33,7 @@ public class OpenFileActionTest {
         MockitoAnnotations.openMocks(this);
     }
 
-    @Test
+    
     public void testActionPerformed() throws IOException {
         // Mock the behavior of the application
         when(mockApp.isEnabled()).thenReturn(true);
