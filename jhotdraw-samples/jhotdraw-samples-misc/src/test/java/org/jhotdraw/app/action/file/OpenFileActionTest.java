@@ -70,8 +70,7 @@ public class OpenFileActionTest {
 
 
         assertNotNull(mockApp.getActiveView());
-        }
-        catch (NullPointerException ex){
+        } catch (NullPointerException ex){
             ex.printStackTrace();
         }
     }
