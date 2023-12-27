@@ -81,6 +81,8 @@ public class OpenFileAction extends AbstractApplicationAction {
     private static final long serialVersionUID = 1L;
     public static final String ID = "file.open";
     public static final String RBUNDLE = "org.jhotdraw.app.Labels";
+    private final Application app = getApplication();
+
 
     /**
      * Creates a new instance.
@@ -99,7 +101,6 @@ public class OpenFileAction extends AbstractApplicationAction {
     @FeatureEntryPoint(value = "OpenPNGInEditor")
     @Override
     public void actionPerformed(ActionEvent evt) {
-        final Application app = getApplication();
         if (app.isEnabled()) {
             app.setEnabled(false);
             // Search for an empty view
@@ -148,15 +149,13 @@ public class OpenFileAction extends AbstractApplicationAction {
     }
 
     protected void openViewFromURI(final View view, final URI uri, final URIChooser chooser) {
-        final Application app = getApplication();
         app.setEnabled(true);
         view.setEnabled(false);
         // If there is another view with the same URI we set the multiple open
         // id of our view to max(multiple open id) + 1.
         int multipleOpenId = 1;
         for (View aView : app.views()) {
-            if (aView != view
-                    && aView.isEmpty()) {
+            if (aView != view && aView.isEmpty()) {
                 multipleOpenId = Math.max(multipleOpenId, aView.getMultipleOpenId() + 1);
             }
         }
