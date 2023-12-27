@@ -2,11 +2,9 @@ package org.jhotdraw.acceptancetest;
 
 import com.tngtech.jgiven.Stage;
 import com.tngtech.jgiven.annotation.ExpectedScenarioState;
-import com.tngtech.jgiven.annotation.ProvidedScenarioState;
 import org.jhotdraw.api.app.View;
 import org.jhotdraw.samples.svg.SVGView;
 import org.junit.Assert;
-import org.junit.Assert.*;
 
 public class ThenSomeOutcome extends Stage<ThenSomeOutcome> {
 

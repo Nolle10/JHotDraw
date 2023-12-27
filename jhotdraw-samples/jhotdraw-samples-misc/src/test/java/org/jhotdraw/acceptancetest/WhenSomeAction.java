@@ -6,7 +6,6 @@ import com.tngtech.jgiven.annotation.ProvidedScenarioState;
 import org.jhotdraw.api.app.View;
 import org.jhotdraw.app.action.file.OpenFileAction;
 import org.jhotdraw.samples.svg.SVGView;
-import org.mockito.internal.matchers.Null;
 
 import java.awt.event.ActionEvent;
 
@@ -29,8 +28,7 @@ public class WhenSomeAction extends Stage<WhenSomeAction> {
             view = new SVGView();
             view.setTitle("Hello World! This is the view!");
             return this;
-        }
-        catch (NullPointerException ex){
+        } catch (NullPointerException ex){
             ex.printStackTrace();
         }
 
