@@ -52,7 +52,7 @@ public class OpenFileActionTest {
         // Create the OpenFileAction instance with the mocked application
         OpenFileAction openFileAction = new OpenFileAction(mockApp);
 
-        // Create an ActionEvent (can be customized based on your needs)
+        // Create an ActionEvent
         ActionEvent actionEvent = mock(ActionEvent.class);
 
         // Call the actionPerformed method
