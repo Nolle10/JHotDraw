@@ -4,7 +4,7 @@ import org.jhotdraw.api.app.Application;
 import org.jhotdraw.api.app.View;
 import org.jhotdraw.api.gui.URIChooser;
 import org.junit.Before;
-import org.junit.Test;
+//import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -33,7 +33,7 @@ public class OpenFileActionTest {
         MockitoAnnotations.openMocks(this);
     }
 
-    
+
     public void testActionPerformed() throws IOException {
         // Mock the behavior of the application
         when(mockApp.isEnabled()).thenReturn(true);
