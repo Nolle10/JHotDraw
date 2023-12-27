@@ -1,23 +1,19 @@
 package org.jhotdraw.app.action.file;
 
 import org.jhotdraw.api.app.Application;
-import org.jhotdraw.api.app.ApplicationModel;
 import org.jhotdraw.api.app.View;
 import org.jhotdraw.api.gui.URIChooser;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.mockito.internal.matchers.Null;
 
 import javax.swing.*;
-import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.URI;
 
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
