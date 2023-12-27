@@ -28,6 +28,8 @@ import org.jhotdraw.draw.Drawing;
 import org.jhotdraw.draw.DrawingEditor;
 import org.jhotdraw.draw.GridConstrainer;
 import org.jhotdraw.draw.action.*;
+import org.jhotdraw.draw.action.arrange.BringToFrontAction;
+import org.jhotdraw.draw.action.arrange.SendToBackAction;
 import org.jhotdraw.draw.io.InputFormat;
 import org.jhotdraw.draw.io.OutputFormat;
 import org.jhotdraw.gui.JFileURIChooser;
@@ -47,6 +49,7 @@ import org.jhotdraw.samples.svg.figures.SVGGroupFigure;
 public class SVGApplicationModel extends DefaultApplicationModel {
 
     private static final long serialVersionUID = 1L;
+
     /**
      * Client property on the URIFileChooser.
      */
@@ -94,6 +97,7 @@ public class SVGApplicationModel extends DefaultApplicationModel {
         m.put(SplitAction.ID, new SplitAction(editor));
         m.put(BringToFrontAction.ID, new BringToFrontAction(editor));
         m.put(SendToBackAction.ID, new SendToBackAction(editor));
+
         //view.addDisposable(action);
     }
 

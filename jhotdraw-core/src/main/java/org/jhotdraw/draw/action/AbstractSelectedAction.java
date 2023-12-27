@@ -87,6 +87,8 @@ public abstract class AbstractSelectedAction
         //updateEnabledState();
     }
 
+    public AbstractSelectedAction(){}
+
     /**
      * Updates the enabled state of this action to reflect the enabled state
      * of the active {@code DrawingView}. If no drawing view is active, this

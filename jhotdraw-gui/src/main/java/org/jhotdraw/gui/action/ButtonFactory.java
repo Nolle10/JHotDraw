@@ -66,33 +66,9 @@ import static org.jhotdraw.draw.AttributeKeys.STROKE_WIDTH;
 import static org.jhotdraw.draw.AttributeKeys.TEXT_COLOR;
 import org.jhotdraw.draw.DrawingEditor;
 import org.jhotdraw.draw.DrawingView;
-import org.jhotdraw.draw.action.AbstractSelectedAction;
-import org.jhotdraw.draw.action.AlignAction;
-import org.jhotdraw.draw.action.ApplyAttributesAction;
-import org.jhotdraw.draw.action.AttributeAction;
-import org.jhotdraw.draw.action.AttributeToggler;
-import org.jhotdraw.draw.action.BringToFrontAction;
-import org.jhotdraw.draw.action.ColorIcon;
-import org.jhotdraw.draw.action.DefaultAttributeAction;
-import org.jhotdraw.draw.action.DrawingAttributeAction;
-import org.jhotdraw.draw.action.DrawingColorChooserAction;
-import org.jhotdraw.draw.action.DrawingColorChooserHandler;
-import org.jhotdraw.draw.action.DrawingColorIcon;
-import org.jhotdraw.draw.action.EditorColorChooserAction;
-import org.jhotdraw.draw.action.EditorColorIcon;
-import org.jhotdraw.draw.action.GroupAction;
-import org.jhotdraw.draw.action.LineDecorationIcon;
-import org.jhotdraw.draw.action.MoveAction;
-import org.jhotdraw.draw.action.PickAttributesAction;
-import org.jhotdraw.draw.action.SelectSameAction;
-import org.jhotdraw.draw.action.SelectionColorChooserAction;
-import org.jhotdraw.draw.action.SelectionColorChooserHandler;
-import org.jhotdraw.draw.action.SelectionColorIcon;
-import org.jhotdraw.draw.action.SendToBackAction;
-import org.jhotdraw.draw.action.StrokeIcon;
-import org.jhotdraw.draw.action.UngroupAction;
-import org.jhotdraw.draw.action.ZoomAction;
-import org.jhotdraw.draw.action.ZoomEditorAction;
+import org.jhotdraw.draw.action.*;
+import org.jhotdraw.draw.action.arrange.BringToFrontAction;
+import org.jhotdraw.draw.action.arrange.SendToBackAction;
 import org.jhotdraw.draw.decoration.ArrowTip;
 import org.jhotdraw.draw.decoration.LineDecoration;
 import org.jhotdraw.draw.event.SelectionComponentRepainter;
@@ -1678,9 +1654,7 @@ public class ButtonFactory {
         dsp.add(d);
         bar.addSeparator();
         bar.add(new BringToFrontAction(editor)).setFocusable(false);
-        dsp.add(d);
         bar.add(new SendToBackAction(editor)).setFocusable(false);
-        dsp.add(d);
     }
 
     /**
