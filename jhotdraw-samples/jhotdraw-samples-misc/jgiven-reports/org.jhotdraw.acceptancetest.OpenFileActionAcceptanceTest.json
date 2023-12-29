@@ -1,0 +1,76 @@
+{
+  "className": "org.jhotdraw.acceptancetest.OpenFileActionAcceptanceTest",
+  "name": "Open File Action Acceptance",
+  "scenarios": [
+    {
+      "className": "org.jhotdraw.acceptancetest.OpenFileActionAcceptanceTest",
+      "testMethodName": "openPng",
+      "description": "Open png",
+      "tagIds": [],
+      "explicitParameters": [],
+      "derivedParameters": [],
+      "scenarioCases": [
+        {
+          "caseNr": 1,
+          "steps": [
+            {
+              "name": "I have opened the uri chooser",
+              "words": [
+                {
+                  "value": "Given",
+                  "isIntroWord": true
+                },
+                {
+                  "value": "I have opened the uri chooser"
+                }
+              ],
+              "status": "PASSED",
+              "durationInNanos": 102071000,
+              "depth": 0,
+              "parentFailed": false
+            },
+            {
+              "name": "I open a png",
+              "words": [
+                {
+                  "value": "When",
+                  "isIntroWord": true
+                },
+                {
+                  "value": "I open a png"
+                }
+              ],
+              "status": "PASSED",
+              "durationInNanos": 5616600,
+              "depth": 0,
+              "parentFailed": false
+            },
+            {
+              "name": "the selected png is shown",
+              "words": [
+                {
+                  "value": "Then",
+                  "isIntroWord": true
+                },
+                {
+                  "value": "the selected png is shown"
+                }
+              ],
+              "status": "PASSED",
+              "durationInNanos": 1039859900,
+              "depth": 0,
+              "parentFailed": false
+            }
+          ],
+          "explicitArguments": [],
+          "derivedArguments": [],
+          "status": "SUCCESS",
+          "durationInNanos": 1219928800
+        }
+      ],
+      "casesAsTable": false,
+      "durationInNanos": 1219928800
+    }
+  ],
+  "tagMap": {}
+}

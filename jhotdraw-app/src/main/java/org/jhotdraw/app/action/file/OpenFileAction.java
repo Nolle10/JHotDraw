@@ -29,6 +29,8 @@ import javax.swing.JRootPane;
 import javax.swing.SwingUtilities;
 import javax.swing.SwingWorker;
 import javax.swing.UIManager;
+
+import dk.sdu.mmmi.featuretracer.lib.FeatureEntryPoint;
 import org.jhotdraw.action.AbstractApplicationAction;
 import org.jhotdraw.api.app.Application;
 import org.jhotdraw.api.app.View;
@@ -78,13 +80,16 @@ public class OpenFileAction extends AbstractApplicationAction {
 
     private static final long serialVersionUID = 1L;
     public static final String ID = "file.open";
+    public static final String RBUNDLE = "org.jhotdraw.app.Labels";
+    private final Application app = getApplication();
+
 
     /**
      * Creates a new instance.
      */
     public OpenFileAction(Application app) {
         super(app);
-        ResourceBundleUtil labels = ResourceBundleUtil.getBundle("org.jhotdraw.app.Labels");
+        ResourceBundleUtil labels = ResourceBundleUtil.getBundle(RBUNDLE);
         labels.configureAction(this, ID);
     }
 
@@ -93,16 +98,14 @@ public class OpenFileAction extends AbstractApplicationAction {
         return getApplication().getOpenChooser(null);
     }
 
+    @FeatureEntryPoint(value = "OpenPNGInEditor")
     @Override
     public void actionPerformed(ActionEvent evt) {
-        final Application app = getApplication();
         if (app.isEnabled()) {
             app.setEnabled(false);
             // Search for an empty view
             View emptyView = app.getActiveView();
-            if (emptyView == null
-                    || !emptyView.isEmpty()
-                    || !emptyView.isEnabled()) {
+            if (emptyView == null || !emptyView.isEmpty() || !emptyView.isEnabled()) {
                 emptyView = null;
             }
             final View view;
@@ -144,15 +147,13 @@ public class OpenFileAction extends AbstractApplicationAction {
     }
 
     protected void openViewFromURI(final View view, final URI uri, final URIChooser chooser) {
-        final Application app = getApplication();
         app.setEnabled(true);
         view.setEnabled(false);
         // If there is another view with the same URI we set the multiple open
         // id of our view to max(multiple open id) + 1.
         int multipleOpenId = 1;
         for (View aView : app.views()) {
-            if (aView != view
-                    && aView.isEmpty()) {
+            if (aView != view && aView.isEmpty()) {
                 multipleOpenId = Math.max(multipleOpenId, aView.getMultipleOpenId() + 1);
             }
         }
@@ -171,7 +172,7 @@ public class OpenFileAction extends AbstractApplicationAction {
                 if (exists) {
                     view.read(uri, chooser);
                 } else {
-                    ResourceBundleUtil labels = ResourceBundleUtil.getBundle("org.jhotdraw.app.Labels");
+                    ResourceBundleUtil labels = ResourceBundleUtil.getBundle(RBUNDLE);
                     throw new IOException(labels.getFormatted("file.open.fileDoesNotExist.message", URIUtil.getName(uri)));
                 }
                 return null;
@@ -203,7 +204,7 @@ public class OpenFileAction extends AbstractApplicationAction {
                 view.setEnabled(true);
                 app.setEnabled(true);
                 String message = value.getMessage() != null ? value.getMessage() : value.toString();
-                ResourceBundleUtil labels = ResourceBundleUtil.getBundle("org.jhotdraw.app.Labels");
+                ResourceBundleUtil labels = ResourceBundleUtil.getBundle(RBUNDLE);
                 JSheet.showMessageSheet(view.getComponent(),
                         "<html>" + UIManager.getString("OptionPane.css")
                         + "<b>" + labels.getFormatted("file.open.couldntOpen.message", URIUtil.getName(uri)) + "</b><p>"
@@ -242,7 +243,6 @@ public class OpenFileAction extends AbstractApplicationAction {
         returnValue[0] = JFileChooser.ERROR_OPTION;
         chooser.rescanCurrentDirectory();
         dialog.setVisible(true);
-        //chooser.firePropertyChange("JFileChooserDialogIsClosingProperty", dialog, null);
         dialog.removeAll();
         dialog.dispose();
         return returnValue[0];
@@ -271,17 +271,10 @@ public class OpenFileAction extends AbstractApplicationAction {
                 dialog.getRootPane().setWindowDecorationStyle(JRootPane.FILE_CHOOSER_DIALOG);
             }
         }
-        //dialog.pack();
+
         Preferences prefs = PreferencesUtil.userNodeForPackage(getApplication().getModel().getClass());
         PreferencesUtil.installFramePrefsHandler(prefs, "openChooser", dialog);
-        /*
-        if (window.getBounds().isEmpty()) {
-        Rectangle screenBounds = window.getGraphicsConfiguration().getBounds();
-        dialog.setLocation(screenBounds.x + (screenBounds.width - dialog.getWidth()) / 2,
-        screenBounds.y + (screenBounds.height - dialog.getHeight()) / 3);
-        } else {
-        dialog.setLocationRelativeTo(parent);
-        }*/
+
         return dialog;
     }
 }
