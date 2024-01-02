@@ -36,6 +36,7 @@ public class DependencyFigure extends LineConnectionFigure {
         setAttributeEnabled(STROKE_DASHES, false);
         setAttributeEnabled(FONT_ITALIC, false);
         setAttributeEnabled(FONT_UNDERLINE, false);
+        setAttributeEnabled(FONT_STRIKETHROUGH, false);
     }
 
     /**

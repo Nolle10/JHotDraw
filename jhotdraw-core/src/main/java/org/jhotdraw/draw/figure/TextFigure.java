@@ -120,6 +120,9 @@ public class TextFigure extends AbstractAttributedDecoratedFigure
             if (get(FONT_UNDERLINE)) {
                 textAttributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_LOW_ONE_PIXEL);
             }
+            if (get(FONT_STRIKETHROUGH)) {
+                textAttributes.put(TextAttribute.STRIKETHROUGH, TextAttribute.STRIKETHROUGH_ON);
+            }
             textLayout = new TextLayout(text, textAttributes, frc);
         }
         return textLayout;
