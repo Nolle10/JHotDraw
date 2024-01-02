@@ -450,6 +450,14 @@ public class ResourceBundleUtil implements Serializable {
         return getBundle(baseName, LocaleUtil.getDefault());
     }
 
+    public static ResourceBundleUtil getBundleDrawLabels(){
+      return ResourceBundleUtil.getBundle("org.jhotdraw.draw.Labels");
+    }
+
+    public static ResourceBundleUtil getBundleSamplesSvgLabels(){
+        return ResourceBundleUtil.getBundle("org.jhotdraw.samples.svg.Labels");
+    }
+
     public void setBaseClass(Class<?> baseClass) {
         this.baseClass = baseClass;
     }

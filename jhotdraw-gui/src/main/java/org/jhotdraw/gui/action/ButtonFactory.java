@@ -18,6 +18,8 @@ import org.jhotdraw.draw.AttributeKeys;
 import org.jhotdraw.draw.DrawingEditor;
 import org.jhotdraw.draw.DrawingView;
 import org.jhotdraw.draw.action.*;
+import org.jhotdraw.draw.action.arrange.BringToFrontAction;
+import org.jhotdraw.draw.action.arrange.SendToBackAction;
 import org.jhotdraw.draw.decoration.ArrowTip;
 import org.jhotdraw.draw.decoration.LineDecoration;
 import org.jhotdraw.draw.event.SelectionComponentRepainter;
@@ -1545,9 +1547,7 @@ public class ButtonFactory {
         dsp.add(d);
         bar.addSeparator();
         bar.add(new BringToFrontAction(editor)).setFocusable(false);
-        dsp.add(d);
         bar.add(new SendToBackAction(editor)).setFocusable(false);
-        dsp.add(d);
     }
 
     /**

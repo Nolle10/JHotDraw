@@ -7,8 +7,12 @@
  */
 package org.jhotdraw.samples.svg.gui;
 
+import dk.sdu.mmmi.featuretracer.lib.FeatureEntryPoint;
+import org.jhotdraw.draw.action.arrange.ArrangeService;
+import org.jhotdraw.draw.SPILocator;
 import org.jhotdraw.gui.plaf.palette.PaletteButtonUI;
 import java.awt.*;
+import java.util.Collection;
 import javax.swing.*;
 import javax.swing.border.*;
 import org.jhotdraw.draw.DrawingEditor;
@@ -31,8 +35,7 @@ public class ArrangeToolBar extends AbstractToolBar {
      * Creates new instance.
      */
     public ArrangeToolBar() {
-        ResourceBundleUtil labels = ResourceBundleUtil.getBundle("org.jhotdraw.samples.svg.Labels");
-        setName(labels.getString(getID() + ".toolbar"));
+        setName(ResourceBundleUtil.getBundleSamplesSvgLabels().getString(getID() + ".toolbar"));
     }
 
     @Override
@@ -48,51 +51,58 @@ public class ArrangeToolBar extends AbstractToolBar {
         }
     }
 
+    private Collection<? extends ArrangeService> getArrangeServices() {
+        return SPILocator.locateAll(ArrangeService.class);
+    }
+
+    @FeatureEntryPoint(value = "arrangeToolBar")
     @Override
     protected JComponent createDisclosedComponent(int state) {
-        JPanel p = null;
-        switch (state) {
-            case 1: 
-                p = new JPanel();
-                p.setOpaque(false);
-                p.setBorder(new EmptyBorder(5, 5, 5, 8));
-                // Abort if no editor is set
-                if (editor == null) {
-                    break;
-                }
-                ResourceBundleUtil labels = ResourceBundleUtil.getBundle("org.jhotdraw.samples.svg.Labels");
-                GridBagLayout layout = new GridBagLayout();
-                p.setLayout(layout);
-                GridBagConstraints gbc;
-                AbstractButton btn;
-                AbstractSelectedAction d;
-                btn = new JButton(d = new BringToFrontAction(editor));
-                disposables.add(d);
-                btn.setUI((PaletteButtonUI) PaletteButtonUI.createUI(btn));
-                btn.setText(null);
-                labels.configureToolBarButton(btn, BringToFrontAction.ID);
-                btn.putClientProperty("hideActionText", Boolean.TRUE);
-                gbc = new GridBagConstraints();
-                gbc.gridy = 0;
-                gbc.anchor = GridBagConstraints.EAST;
-                p.add(btn, gbc);
-                btn = new JButton(d = new SendToBackAction(editor));
-                disposables.add(d);
-                btn.setUI((PaletteButtonUI) PaletteButtonUI.createUI(btn));
-                btn.setText(null);
-                labels.configureToolBarButton(btn, SendToBackAction.ID);
-                btn.putClientProperty("hideActionText", Boolean.TRUE);
-                btn.setUI((PaletteButtonUI) PaletteButtonUI.createUI(btn));
-                gbc = new GridBagConstraints();
-                gbc.gridy = 1;
-                gbc.insets = new Insets(3, 0, 0, 0);
-                gbc.anchor = GridBagConstraints.NORTH;
-                gbc.weighty = 1f;
-                p.add(btn, gbc);
+        if (state != 1) {
+            return null;
+        } else {
+            JPanel panel = createPanelWithBorder();
+            if (editor == null) {
+                return panel;
+            }
 
-            break;
+            ResourceBundleUtil labels = ResourceBundleUtil.getBundleSamplesSvgLabels();
+
+            GridBagConstraints gbc = new GridBagConstraints();
+            GridBagLayout layout = new GridBagLayout();
+            panel.setLayout(layout);
+
+            int yPos = 0;
+            for (ArrangeService arrangeService : getArrangeServices()) {
+                addButtonToPanel(panel, arrangeService.createWithEditor(editor), arrangeService.getID(), labels, gbc, yPos);
+                yPos++;
+            }
+            return panel;
         }
-        return p;
+    }
+
+    private JPanel createPanelWithBorder() {
+        JPanel panel = new JPanel();
+        panel.setOpaque(false);
+        panel.setBorder(new EmptyBorder(5, 5, 5, 8));
+        return panel;
+    }
+
+    private void addButtonToPanel(JPanel panel, AbstractSelectedAction action, String id, ResourceBundleUtil labels, GridBagConstraints gbc, int yPos) {
+        AbstractButton button = new JButton(action);
+        disposables.add(action);
+        button.setUI((PaletteButtonUI) PaletteButtonUI.createUI(button));
+        button.setText(null);
+        labels.configureToolBarButton(button, id);
+        button.putClientProperty("hideActionText", Boolean.TRUE);
+
+        gbc.gridy = yPos;
+        gbc.anchor = (yPos == 0) ? GridBagConstraints.EAST : GridBagConstraints.NORTH;
+        if (yPos == 1) {
+            gbc.insets = new Insets(3, 0, 0, 0);
+            gbc.weighty = 1f;
+        }
+        panel.add(button, gbc);
     }
 
     /**
